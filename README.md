@@ -10,21 +10,21 @@ A GAN is comprised of two adversarial networks, a discriminator and a generator.
 * The inputs to the discriminator are 32x32x3 tensor images.
 * The output should be a single value that will indicate whether a given image is real or fake.
 
-Convolutional Layers | Input Dimension | Output Dimension |  Activation Fucntion
------- | ----- | ------ |  -------------------
-layer 1 | 3 | 64 | leaky relu
-layer 2 | 64 | 128 | leaky relu
-layer 3 | 128 | 256 | leaky relu
+Convolutional Layers | Input Dimension | Output Dimension |  Activation Fucntion | Batch Normalization
+------ | ----- | ------ |  ------------------- | ------
+layer 1 | 3 | 64 | leaky relu | False
+layer 2 | 64 | 128 | leaky relu | True
+layer 3 | 128 | 256 | leaky relu | True
 ### Generator
 * The inputs to the generator are vectors of some length z_size.
 * The output should be a image of shape 32x32x3.
 
-Deconvolutional Layers | Input Dimension | Output Dimension | Activation Function
----------------------- | ----- | ------ | -------------------
-Layer 1 | 512 | 256 | relu
-Layer 2 | 256 | 128 | relu
-Layer 3 | 128 | 64 | relu
-Layer 4 | 64 | 3 | relu
+Deconvolutional Layers | Input Dimension | Output Dimension | Activation Function | Batch Normalization
+---------------------- | ----- | ------ | ------------------- | ------
+Layer 1 | 512 | 256 | relu | True
+Layer 2 | 256 | 128 | relu | True
+Layer 3 | 128 | 64 | relu | True
+Layer 4 | 64 | 3 | relu | False
 ## Other Parameters
 * **Epochs** = 40
 * **Optimizer** = Adam
@@ -35,3 +35,9 @@ Layer 4 | 64 | 3 | relu
 ## Results
 The dataset is biased; it is made of "celebrity" faces that are mostly white. After training the dataset over 40 epochs, I got the following result.
 ![Screenshot from 2019-09-07 21-28-21](https://user-images.githubusercontent.com/42621149/64477229-8a890780-d1b6-11e9-9ccf-d560e768c1ae.png)
+## Project Instruction
+* Clone the directory by using this command.
+```
+    git clone https://github.com/vjrahil/Face-Generator
+```
+* All the code is available inside the **dlnd_face_generation.ipynb**.
