@@ -7,7 +7,7 @@ def _print_success_message():
     print('Tests Passed')
 
 
-class AssertTest(object):
+class AssertTest:
     def __init__(self, params):
         self.assert_param_message = '\n'.join([str(k) + ': ' + str(v) + '' for k, v in params.items()])
 
